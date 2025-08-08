@@ -1,0 +1,66 @@
+**Design an LLM-Powered Intelligent Query–Retrieval System** that can process large documents and make contextual decisions. Your system should handle real-world scenarios in insurance, legal, HR, and compliance domains.
+**Input Requirements:**
+* Process PDFs, DOCX, and email documents
+* Handle policy/contract data efficiently
+* Parse natural language queries
+**Technical Specifications:**
+* Use embeddings (FAISS/Pinecone) for semantic search
+* Implement clause retrieval and matching
+* Provide explainable decision rationale
+* Output structured JSON responses
+**Sample Query:**
+*"Does this policy cover knee surgery, and what are the conditions?"*
+
+**EVALUATION PARAMETERS**
+**3.1)** Your solution will be evaluated based on the following criteria:
+**a**
+**Accuracy**
+Precision of query understanding and clause matching
+**b**
+**Token Efficiency**
+Optimized LLM token usage and cost-effectiveness
+**c**
+**Latency**
+Response speed and real-time performance
+**d**
+**Reusability**
+Code modularity and extensibility
+**e**
+**Explainability**
+Clear decision reasoning and clause traceability
+
+**RETRIEVAL SYSTEM API DOCUMENTATION**
+**Base URL (Local Development):**
+http://localhost:8000/api/v1
+**Authentication:**
+Authorization: Bearer 36d49ac587c7cb7331f48ad3067cd8057811970de89b734f8326aa39d665c8c9
+
+**Scoring System Explanation**
+1. **Document Types**
+   * *Known Documents*: Publicly available
+   * *Unknown Documents*: Private & unseen
+2. **Document-Level Weightage**
+   * *Known Documents*: Low weightage (e.g., 0.5)
+   * *Unknown Documents*: High weightage (e.g., 2.0)
+3. **Question-Level Weightage**
+   * Each question may have its own weight (e.g., some are worth more due to complexity or importance).
+4. **Score Calculation**
+   * For each correct answer: Score = Question Weight × Document Weight
+   * Final score is the **sum of all such scores** across all documents.
+**📊 Example**
+**Documents:**
+* *Doc A (Known)* – Weight: 0.5
+* *Doc B (Unknown)* – Weight: 2.0
+**Questions:**
+QuestionDocumentAnswered Correctly?Question WeightScore ContributionQ1Doc A✅ Yes1.01.0 × 0.5 = **0.5**Q2Doc A❌ No2.00Q3Doc B✅ Yes1.01.0 × 2.0 = **2.0**Q4Doc B✅ Yes2.02.0 × 2.0 = **4.0**
+**🧮 Total Score:**
+* *Doc A Contribution*: 0.5
+* *Doc B Contribution*: 2.0 + 4.0 = 6.0
+* **Final Score = 0.5 + 6.0 = 6.5**
+**✅ Key Points**
+* Correct answers from **unknown documents** contribute more.
+* **High-weight questions** boost your score significantly.
+* **Incorrect or unattempted questions** contribute 0, regardless of weight.
+
+
+i have to make this application so guide as gor the above whole manipulation process
