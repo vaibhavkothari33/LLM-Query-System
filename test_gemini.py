@@ -11,7 +11,7 @@ def test_gemini():
     print("=" * 30)
     
     # Your API key
-    api_key = "AIzaSyDvqPYipnjb5jAozUqdmcboOrNqSKSZUWE"
+    api_key = ""
     
     try:
         # Configure Gemini
