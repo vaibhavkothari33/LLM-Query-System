@@ -262,7 +262,7 @@ Content-Type: application/json
 ### Server Mode
 ```bash
 # Start API server
-python main.py --server --port 8001
+python main.py --server --port 8000
 
 # Start on different port if 8000 is busy
 python main.py --server --port 8002

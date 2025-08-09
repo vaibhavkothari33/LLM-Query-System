@@ -23,8 +23,8 @@ def check_dependencies():
     
     required_packages = [
         'fastapi', 'uvicorn', 'sentence_transformers', 'faiss', 
-        'scikit-learn', 'pandas', 'numpy', 'PyPDF2', 'docx', 
-        'beautifulsoup4', 'transformers', 'openai', 'pydantic'
+         'pandas', 'numpy', 'PyPDF2', 'docx', 
+        'transformers', 'openai', 'pydantic'
     ]
     
     missing_packages = []
