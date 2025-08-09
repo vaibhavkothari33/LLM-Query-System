@@ -14,7 +14,7 @@ from pathlib import Path
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 import time
-
+from dotenv import load_dotenv
 # Core dependencies
 import pandas as pd
 import numpy as np
@@ -68,11 +68,10 @@ class Config:
     top_k_documents: int = 5
     similarity_threshold: float = 0.3
     
+    load_dotenv()
     # API settings
-    api_key: str = "36d49ac587c7cb7331f48ad3067cd8057811970de89b734f8326aa39d665c8c9"
-    
-    # LLM API settings
-    gemini_api_key: str = "AIzaSyDvqPYipnjb5jAozUqdmcboOrNqSKSZUWE"  # Set your Gemini API key here or use environment variable
+    api_key: str = os.getenv("SYSTEM_API_KEY", "default_api_key")
+    gemini_api_key: str = os.getenv("GEMINI_API_KEY", "default_api_key")
     
     # Scoring weights
     known_doc_weight: float = 0.5
